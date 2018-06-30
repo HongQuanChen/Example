@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.swschrwx.model.CareerObjectiveM">
+  <resultMap type="CareerObjective" id="CareerObjectiveMap">
+    <result property="NatureOfTheWork" column="natureOfTheWork"/>
+    <result property="WorkPlace" column="workPlace"/>
+    <result property="ExpectedSalary" column="expectedSalary"/>
+    <result property="WorkStatus" column="workStatus"/>
+  </resultMap>
+  <insert id="insertCareerObjective">
+    INSERT INTO careerobjective(IDNumber,careerObjectiveId,natureOfTheWork,
+             workPlace,expectedSalary,workStatus,createDate)
+    VALUES(#{IDNumber},#{CareerObjectiveId},#{NatureOfTheWork},#{WorkPlace},
+             #{ExpectedSalary},#{WorkStatus},#{CreateTime})
+  </insert>
+  
+  <select id="selectCareerObjective" resultType="int">
+      SELECT COUNT(*) FROM careerobjective co WHERE 
+      co.careerObjectiveId =#{CareerObjectiveId} AND co.IDNumber = #{IDNumber}
+  </select>
+  
+  <select id="selectCareerObjectiveAll" resultMap="CareerObjectiveMap">
+		SELECT co.natureOfTheWork,co.workPlace,co.expectedSalary
+		,co.workStatus from careerobjective co 
+		WHERE co.IDNumber = #{IDNumber}
+		AND co.careerObjectiveId = #{CareerObjectiveId}
+  </select>
+  
+  <update id="updateCareerObjective">
+     UPDATE careerobjective co 
+		SET co.natureOfTheWork = #{NatureOfTheWork},
+		    co.workPlace = #{WorkPlace},
+		    co.expectedSalary = #{ExpectedSalary},
+		    co.workStatus = #{WorkStatus},
+		    co.updateDate = #{UpdateTime}
+		WHERE co.careerObjectiveId = #{CareerObjectiveId}
+		AND co.IDNumber = #{IDNumber}
+  </update>
+  
+  <delete id="deleteCareerObjective">
+	  DELETE FROM careerobjective
+		WHERE careerobjective.careerObjectiveId = #{CareerObjectiveId}
+		AND careerobjective.IDNumber = #{IDNumber}
+  </delete>
+</mapper>

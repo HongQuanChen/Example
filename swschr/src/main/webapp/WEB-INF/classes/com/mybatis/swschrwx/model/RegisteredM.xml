@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.swschrwx.model.RegisteredM">
+   <resultMap type="Registered" id="registeredMap">
+    <id property="IDNumber" column="IDNumber"/>
+    <result property="Password1" column="password1" />
+    <result property="Password2" column="password1" />
+    <result property="PhoneNumber" column="phoneNumber" />
+    <result property="EmailAddress" column="emailAddress" />
+  </resultMap>
+  <insert id="InsertUser">
+    INSERT INTO registered(IDNumber,password1,password2,phoneNumber,emailAddress)
+    VALUES(#{IDNumber},#{Password1},#{Password2},#{PhoneNumber},#{emailAddress})
+  </insert>
+  
+  <select id="hasUserId" resultType="int">
+      SELECT COUNT(*) from registered reg WHERE reg.IDNumber = #{IDNumber};
+  </select>
+  
+  <select id="hasPhone" resultType="int">
+      SELECT COUNT(*) from registered reg WHERE reg.phoneNumber = #{PhoneNumber};
+  </select>
+  
+  <select id="hasEmail" resultType="int">
+      SELECT COUNT(*) from registered reg WHERE reg.IDNumber = #{IDNumber} AND
+      reg.emailAddress = #{Email};
+  </select>
+  
+  <select id="selectXX" resultMap="registeredMap">
+     SELECT * from registered reg WHERE reg.IDNumber = #{IDNumber}
+  </select>
+  
+  <update id="updatePassword">
+	  UPDATE registered reg
+		set reg.password1 = #{Password1},
+		    reg.password2 = #{Password2}
+		WHERE reg.IDNumber = #{IDNumber}
+  </update>
+
+</mapper>

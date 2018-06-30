@@ -1,0 +1,92 @@
+@charset "UTF-8";
+body{
+    background-color: #fff;
+    max-width: 750px;
+}
+.container{
+    padding-right:0;
+    padding-left:0;
+}
+#main{
+    margin: 1.333rem auto;
+    width:4.667rem;
+    border-style: solid;
+    border-left-width: 1px;
+    border-left-color: #bfbfbf;
+    border-right-width: 1px;
+    border-right-color: #bfbfbf;
+    border-top-color: #ff6639;
+    border-top-width: 0.067rem;
+    border-bottom-color: #ff6639;
+    border-bottom-width: 0.067rem;
+    padding-bottom: 0.267rem;
+}
+#dl{
+     color: #ff6000;
+     text-align: center;
+     width: 100%;
+ }
+ label{
+     font-weight: bold;
+ }
+ form{
+     margin: 0 auto;
+     width: 4.0rem;
+     padding-left: 0.267rem;
+     position: relative;
+ }
+ #username, #password{
+     display: block;
+     margin-bottom: 0.133rem;
+     width: 3.4rem;
+     height: 0.467rem;
+     font-size: 14px;
+ }
+ #submit{
+     display: block;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     apperance:none;
+     width: 3.4rem;
+     height: 0.467rem;
+     background-color: #ff6636;
+     outline: none;
+     border-style: none;
+     color: #fff;
+     font-size: 14px;
+     margin-bottom: 0.267rem;
+ }
+ #qt{
+     text-align: inherit;
+     width: 3.4rem;
+     position: relative;
+ }
+ #zuxyh{
+     text-decoration-line: none;
+     color: #ff6000;
+     cursor: pointer;
+ }
+ #zuxyh:hover{
+     text-decoration-line: underline;
+ }
+ #wjmm{
+     position: absolute;
+     top: 0;
+     right: 0;
+     text-decoration-line: none;
+     color: #ff6000;
+     cursor: pointer;
+ }
+ #wjmm:hover{
+     text-decoration-line: underline;
+ }
+ #tsyhm,#tsmm,#loginFailed{
+     color: #ff6000;
+     font-size:12px;
+     display: none;
+ }
+ #loginFailed{
+    margin-right: 0.667rem;
+    position: absolute;
+    right: 0;
+ }

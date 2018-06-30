@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <!-- 扫描controller（controller层注入）-->
+ <context:component-scan base-package="com.mybatis.swschrwx">
+   </context:component-scan>
+ 
+   <beans:bean id="dataSource"  
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource" >  
+        <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+        <beans:property name="url" value="jdbc:mysql://localhost:3306/myhq?useSSL=false
+        &amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false
+        &amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=UTF-8" />  
+        <beans:property name="username" value="root" />  
+        <beans:property name="password" value="Chq870330" />  
+    </beans:bean>
+   
+   <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+     <beans:property name="configLocation" value="classpath:mybatis-config.xml"></beans:property>
+     <beans:property name="dataSource" ref="dataSource"></beans:property>
+     <beans:property name="mapperLocations" value="classpath:com/mybatis/swschrwx/model/*.xml">
+     </beans:property>
+     <beans:property name="typeAliasesPackage" value="com.mybatis.swschrwx.pojo"></beans:property>
+   </beans:bean>
+   
+   <beans:bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+      <beans:property name="basePackage" value="com.mybatis.swschrwx.model" /> 
+   </beans:bean>
+     
+   <beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+        <beans:property name="dataSource" ref="dataSource" />  
+    </beans:bean>
+
+	
+</beans:beans>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.swschrwx.model.JobdetailsM">
+  <resultMap type="Jobdetails" id="jobdetailsMap">
+    <id property="JobDetailsId" column="JobDetailsId"/>
+    <result property="companyid" column="companyid" />
+    <result property="PositionTitle" column="PositionTitle" />
+    <result property="ReleaseDate" column="ReleaseDate" />
+    <result property="Education" column="Education" />
+    <result property="jobType" column="jobType" />
+    <result property="Department" column="Department" />
+    <result property="RecruitmentActivities" column="RecruitmentActivities" />
+    <result property="Place" column="place" />
+    <result property="company.CompanyName" column="companyname"/>
+  </resultMap>
+  <select id="selectByCondition" resultMap="jobdetailsMap">
+    SELECT job.JobDetailsId,job.PositionTitle,job.ReleaseDate,job.Education,
+    job.jobType,job.Department,job.RecruitmentActivities,job.place,
+    c.companyname from(
+    select * from jobdetails 
+    <where>
+      <if test="PositionTitle != null and PositionTitle !=''">
+        and PositionTitle in 
+        <foreach item="PositionTitle" index="index" collection="PositionTitle" open="(" separator="," close=")">
+           #{PositionTitle}
+        </foreach>
+      </if> 
+      <if test="ReleaseDate != null and ReleaseDate !=''">
+         and DATE_FORMAT(ReleaseDate,'%y-%m-%d') > 
+         DATE_FORMAT(DATE_SUB(NOW(),INTERVAL #{ReleaseDate,jdbcType=DATE} DAY),'%y-%m-%d')
+      </if>
+      <if test="Education != null">
+         and Education = #{Education}
+      </if>
+      <if test="jobType != null">
+         and jobType = #{jobType}
+      </if>
+      <if test="Department != null and Department !=''">
+        and Department = #{Department}
+      </if>
+      <if test="RecruitmentActivities != null">
+         and RecruitmentActivities = #{RecruitmentActivities}
+      </if>
+      <if test="Place != null and Place !=''">
+        and place = #{Place}
+      </if>
+    </where>
+    ) job,(select * from company) c
+    where c.companyid = job.companyid
+    UNION
+    SELECT job.JobDetailsId,job.PositionTitle,job.ReleaseDate,job.Education,
+    job.jobType,job.Department,job.RecruitmentActivities,job.place,
+    c.companyname from(
+    select * from jobdetails 
+      <where>
+      <if test="ReleaseDate != null and ReleaseDate !=''">
+         and DATE_FORMAT(ReleaseDate,'%y-%m-%d') > 
+         DATE_FORMAT(DATE_SUB(NOW(),INTERVAL #{ReleaseDate,jdbcType=DATE} DAY),'%y-%m-%d')
+      </if>
+      <if test="Education != null">
+         and Education = #{Education}
+      </if>
+      <if test="jobType != null">
+         and jobType = #{jobType}
+      </if>
+      <if test="Department != null and Department !=''">
+        and Department = #{Department}
+      </if>
+      <if test="RecruitmentActivities != null">
+         and RecruitmentActivities = #{RecruitmentActivities}
+      </if>
+      <if test="Place != null and Place !=''">
+        and place = #{Place}
+      </if>
+    </where>
+    ) job,(select * from company
+      <where>
+        <if test="CompanyName != null and CompanyName !=''">
+          and companyname in 
+          <foreach item="CompanyName" index="index" collection="CompanyName" open="(" separator="," close=")">
+           #{CompanyName}
+        </foreach>
+        </if>
+      </where>
+    ) c
+    where c.companyid = job.companyid
+    ORDER BY ReleaseDate DESC
+  </select>
+</mapper>

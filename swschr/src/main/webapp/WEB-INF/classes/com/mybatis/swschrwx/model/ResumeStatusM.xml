@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.swschrwx.model.ResumeStatusM"> 
+  <resultMap type="ResumeStatus" id="ResumeStatusMap">
+    <result property="CreateTime" column="createTime"/>
+    <result property="UpdateTime" column="updateTime"/>
+  </resultMap>
+  <select id="selectResumeStatus" resultMap="ResumeStatusMap">
+    SELECT xx.resumeId,MIN(xx.createTime) as createTime,MAX(xx.updateTime) as updateTime FROM (
+		(SELECT we.workExperienceId as resumeId,MIN(we.createDate) as createTime,MAX(we.updateDate) as updateTime from workexperience we WHERE we.IDNumber = #{IDNumber}
+	   GROUP BY we.workExperienceId )
+		union ALL
+		(SELECT eb.educationBackgroundId,MIN(eb.createDate),MAX(eb.updateDate) from educationbackground eb where eb.IDNumber = #{IDNumber}
+		 GROUP BY eb.educationBackgroundId)
+		UNION ALL
+		(SELECT cb.careerObjectiveId,MIN(cb.createDate),MAX(cb.updateDate) from careerobjective cb WHERE cb.IDNumber = #{IDNumber}
+		 GROUP BY cb.careerObjectiveId
+		)
+		UNION ALL
+		(SELECT pi.personalId,MIN(pi.createTime),MAX(pi.updateTime) from personalinformation pi WHERE pi.IDnumber = #{IDNumber}
+		 GROUP BY pi.personalId
+		)
+    ) xx GROUP BY xx.resumeId ORDER BY xx.resumeId 
+  </select>
+
+</mapper>

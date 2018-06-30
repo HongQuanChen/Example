@@ -1,0 +1,92 @@
+@charset "UTF-8";
+        body{
+            background-color: #e3e3e3;
+            max-width: 750px;
+        }
+        .container{
+            padding-right: 0;
+            padding-left: 0;
+        }
+        #jlnav{
+            background-color: #ff773e;
+            color: #fff;
+            text-align: center;
+            padding: 0.133rem 0;
+            position: relative;
+            font-size: 18px;
+        }
+        #comeback{
+            position: absolute;
+            left: 0.133rem;
+        }
+        #resumePersonalInformation,#resumeCareerObjective,
+        #resumeEducationBackground,#resumeWorkExperience{
+            position: relative;
+            background-color: #fff;
+            padding: 0.133rem 0 0;
+        }
+        .editp{
+            display: inline-block;
+            margin-left: 0.2rem;
+        }
+        .content{
+            background-color: #fff;
+        }
+        #grimg{
+            width: 0.667rem;
+        }
+        #grimg img{
+            border-radius: 50%;
+        }
+        #grimgright{
+            padding-bottom: 0;
+            vertical-align: middle;
+            padding-top: 0;
+        }
+        #grimgright ul{
+            margin-bottom: 0;
+        }
+        #grname{
+            margin-bottom: 0.067rem;
+            font-size: 20px;
+            color: #ff6600;
+        }
+        #grimgright ul li:last-child{
+            color: #a2a2a2;
+        }
+        #grsex{
+            border-right-style: solid;
+            padding-right: 0.067rem;
+            margin-right: 0.067rem;
+        }
+        #grcols1,#grcols2,#grcols3,#grcols4{
+            padding: 0;
+            border-top: none;
+        }
+        .innertable{
+            margin-bottom: 0;
+            color: #a2a2a2;
+        }
+        .innercolor{
+            color: #333;
+        }
+        #grcols1 .innertable td,#grcols2 .innertable td,
+        #grcols3 .innertable td,#grcols4 .innertable td{
+            width: 1.067rem;
+        }
+        .helpimg{
+            margin-right: 0.067rem;
+            vertical-align: bottom;
+        }
+        #main{
+           padding-bottom: 0.133rem;
+        }
+        #main table{
+             margin-bottom: 0;
+        }
+        .table.innertable tr:last-child td{
+            border-bottom: 1px solid #ddd;
+        }
+        #grcols3 .nonetdtop,#grcols4 .nonetdtop{
+            border-top:none;
+        }

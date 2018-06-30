@@ -1,0 +1,97 @@
+@charset "UTF-8";
+ body{
+            background-color: #fff;
+            max-width: 750px;
+        }
+        .container{
+            padding-right:0;
+            padding-left:0;
+        }        
+        #main{
+            margin: 0.667rem auto;
+            width:4.667rem;
+            border-style: solid;
+            border-left-width: 1px;
+            border-left-color: #bfbfbf;
+            border-right-width: 1px;
+            border-right-color: #bfbfbf;
+            border-top-color: #ff6639;
+            border-top-width: 0.067rem;
+            border-bottom-color: #ff6639;
+            border-bottom-width: 0.067rem;
+            padding-bottom: 0.267rem;
+        }
+        #dl{
+            color: #ff6000;
+            text-align: center;
+            width: 100%;
+        }
+        label{
+            font-weight: bold;
+        }
+        form{
+            margin: 0 auto;
+            width: 4.0rem;
+        }
+        #username,#password,#password1,#phone,#email {
+            display: inline-block;
+            margin-bottom: 0.133rem;
+            width: 3.333rem;
+            height: 0.333rem;
+            font-size: 14px;
+        }
+        #yzcode{
+            display: inline-block;
+            margin-bottom: 0.067rem;
+            width: 2.0rem;
+            height: 0.533rem;
+            font-size: 14px;
+        }
+        #yzcodelable{
+            display: block;
+        }
+        #yzcodeimg{
+            vertical-align: middle;
+        }
+        #oneps,#twops{
+            position: relative;
+        }
+        .psxschange{
+            position: absolute;
+            right: 0.733rem;
+            bottom: 0.133rem;
+        }
+        #submit{
+            display: block;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            apperance:none;
+            width: 3.4rem;
+            height: 0.467rem;
+            background-color: #ff6636;
+            outline: none;
+            border-style: none;
+            color: #fff;
+            font-size: 14px;
+            margin: 0 auto;
+            margin-top: 0.267rem;
+        }
+        #tsyhm,#tsmm,#tsphone,
+        #tsemail,#tsmm1,#tsyzcodeImg,
+        #tsyzcode{
+            color: #ff6000;
+            display: none;
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+        #tsyzcodeImg{
+           display:block;
+        }
+        #main form label{
+          display:block;
+        }
+        #userid,#phoneid,#emailid,
+        #passwordid,#passwordid1,
+        #yzcodeid{
+          display:none;
+        }

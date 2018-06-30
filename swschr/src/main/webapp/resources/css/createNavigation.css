@@ -1,0 +1,41 @@
+@charset "UTF-8";
+body{
+            background-color: #e3e3e3;
+            max-width: 750px;
+        }
+        .container{
+            padding-right:0;
+            padding-left:0;
+        }        
+        #jlnav{
+            background-color: #ff773e;
+            color: #fff;
+            text-align: center;
+            padding: 0.133rem 0;
+            position: relative;
+            font-size: 18px;
+        }
+        #comeback{
+            position: absolute;
+            left: 0.133rem;
+        }
+        #createGRXX,#createQZYX,
+        #createJYBJ,#createGZJY,
+        #editGRXX,#editQZYX,
+        #editJYBJ,#editGZJY{
+            text-align: center;
+            margin-top: 0.4rem;
+        }
+        .createGRXX,.createQZYX,
+        .createJYBJ,.createGZJY,
+        .editGRXX,.editQZYX,
+        .editJYBJ,.editGZJY{
+            display: inline-block;
+            width: 100%;
+            padding: 0;
+            height: 0.667rem;
+            line-height: 0.667rem;
+            color: #4c99ff;
+            background-color: #fff8ed;
+            font-size: 14px;
+        }

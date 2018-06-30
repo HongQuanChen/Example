@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.swschrwx.model.WorkExperienceM">
+  <resultMap type="WorkExperience" id="WorkExperienceMap">
+     <result property="CompanyName" column="companyName"/>
+     <result property="JobTitle" column="jobTitle"/>
+     <result property="ZWStartTime" column="zwStartTime"/>
+     <result property="ZWEndTime" column="zwEndTime"/>
+     <result property="ZWSalary" column="zwSalary"/>
+     <result property="ZWGzms" column="ZWGzms"/>
+  </resultMap>
+  <insert id="insertWorkExperience">
+    INSERT INTO workexperience(IDNumber,workExperienceId,number,companyName,
+             jobTitle,zwStartTime,zwEndTime,zwSalary,zwGzms,createDate)
+    VALUES(#{IDNumber},#{WorkExperienceId},#{Number},#{CompanyName},#{JobTitle},
+             #{ZWStartTime,jdbcType=DATE},#{ZWEndTime,jdbcType=DATE},
+             #{ZWSalary},#{ZWGzms},#{CreateDate,jdbcType=DATE})
+  </insert>
+  <select id="selectWorkExperience" resultType="int">
+      SELECT count(*) from workexperience we WHERE 
+		we.IDNumber = #{IDNumber}
+		AND we.workExperienceId = #{WorkExperienceId}
+		AND we.number = #{Number}
+  </select>
+  <select id="selectWorkExperienceAll" resultMap="WorkExperienceMap">
+      SELECT we.companyName,we.jobTitle,we.number,we.zwStartTime
+		,we.zwEndTime,we.zwSalary,we.zwGzms from workexperience we 
+		WHERE we.IDNumber = #{IDNumber}
+		AND we.workExperienceId = #{WorkExperienceId}
+		ORDER BY number
+  </select>
+  <update id="updateWorkExperience">
+     UPDATE workexperience we 
+		SET we.companyName = #{CompanyName},
+		    we.jobTitle = #{JobTitle},
+		    we.zwStartTime = #{ZWStartTime,jdbcType=DATE},
+		    we.zwEndTime = #{ZWEndTime,jdbcType=DATE},
+		    we.zwSalary = #{ZWSalary},
+		    we.zwGzms = #{ZWGzms},
+		    we.updateDate = #{UpdateDate,jdbcType=DATE}
+		WHERE we.IDNumber = #{IDNumber}
+		AND we.workExperienceId = #{WorkExperienceId}
+		AND we.number = #{Number}
+  </update>
+  <delete id="deleteWorkExperience">
+	  DELETE FROM workexperience 
+		WHERE workexperience.IDNumber = #{IDNumber}
+		AND workexperience.workExperienceId = #{WorkExperienceId}
+		AND workexperience.number = #{Number}
+  </delete>
+  <delete id="deleteWorkExperienceAll">
+	  DELETE FROM workexperience
+		WHERE workexperience.IDNumber = #{IDNumber}
+		AND workexperience.workExperienceId = #{WorkExperienceId}
+  </delete>
+</mapper>

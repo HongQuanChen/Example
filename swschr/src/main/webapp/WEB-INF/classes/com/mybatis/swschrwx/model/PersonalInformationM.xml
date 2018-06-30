@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.swschrwx.model.PersonalInformationM">
+   <resultMap type="PersonalInformation" id="PersonalInformationMap">
+    <result property="PersonalId" column="personalId"/>
+    <result property="Avatar" column="avatar"/>
+    <result property="ImgType" column="imgtype"/>
+    <result property="Name" column="name" />
+    <result property="Sex" column="sex" />
+    <result property="DateOfBirth" column="dateOfBirth" />
+    <result property="IDnumber" column="IDnumber" />
+    <result property="PhoneNumber" column="phoneNumber" />
+    <result property="ToWorkTime" column="toWorkTime" />
+    <result property="AccountLocation" column="accountLocation" />
+    <result property="CurrentCity" column="currentCity" />
+    <result property="EmailAddress" column="emailAddress" />
+    <result property="MaritalStatus" column="maritalStatus" />
+    <result property="CreateTime" column="createTime" />
+    <result property="UpdateTime" column="updateTime" />
+  </resultMap>
+  <resultMap type="PersonalInformation2" id="PersonalInformationMap2">
+    <result property="Avatar" column="avatar"/>
+    <result property="Name" column="name" />
+    <result property="Sex" column="sex" />
+    <result property="DateOfBirth" column="dateOfBirth" />
+    <result property="IDnumber" column="IDnumber" />
+    <result property="PhoneNumber" column="phoneNumber" />
+    <result property="ToWorkTime" column="toWorkTime" />
+    <result property="AccountLocation" column="accountLocation" />
+    <result property="CurrentCity" column="currentCity" />
+    <result property="EmailAddress" column="emailAddress" />
+    <result property="MaritalStatus" column="maritalStatus" />
+  </resultMap>
+  <insert id="insertPersonalInformation">
+    INSERT INTO personalinformation(personalId,avatar,imgtype,name,sex,dateOfBirth,IDnumber,
+      phoneNumber,toWorkTime,accountLocation,currentCity,
+      emailAddress,maritalStatus,createTime)
+    VALUES(#{PersonalId},#{Avatar,jdbcType=BLOB},#{ImgType},#{Name},
+      #{Sex},#{DateOfBirth,jdbcType=DATE},#{IDnumber},#{PhoneNumber},
+      #{ToWorkTime,jdbcType=DATE},#{AccountLocation},#{CurrentCity},
+      #{EmailAddress},#{MaritalStatus},#{CreateTime,jdbcType=DATE})
+  </insert>
+  
+  <select id="selectPersonalInformation" resultType="int">
+     SELECT COUNT(*) from personalinformation per WHERE 
+     per.personalId = #{PersonalId} and per.IDnumber = #{IDnumber}
+  </select>
+  
+  <select id="selectPersonalInformationAll" resultMap="PersonalInformationMap2">
+      SELECT pi.avatar,pi.imgtype,pi.`name`,pi.sex,pi.dateOfBirth,
+		pi.IDnumber,pi.phoneNumber,pi.toWorkTime,
+		pi.accountLocation,pi.currentCity,pi.emailAddress,
+		pi.maritalStatus from personalinformation pi 
+		WHERE pi.IDnumber = #{IDnumber}
+		and pi.personalId = #{PersonalId}
+  </select>
+  
+  <update id="updatePersonalInformation">
+     UPDATE personalinformation per
+		SET per.avatar = #{Avatar,jdbcType=BLOB},
+		    per.imgtype = #{ImgType},
+		    per.`name` = #{Name},
+		    per.sex = #{Sex},
+		    per.dateOfBirth = #{DateOfBirth,jdbcType=DATE},
+		    per.phoneNumber = #{PhoneNumber},
+		    per.toWorkTime = #{ToWorkTime,jdbcType=DATE},
+		    per.accountLocation = #{AccountLocation},
+		    per.currentCity = #{CurrentCity},
+		    per.emailAddress = #{EmailAddress},
+		    per.maritalStatus = #{MaritalStatus},
+		    per.updateTime = #{UpdateTime,jdbcType=DATE}
+		WHERE per.IDnumber = #{IDnumber}
+		AND per.personalId = #{PersonalId}
+  </update>
+  <!-- 没有更新图片 -->
+  <update id="updatePersonalInformation1">
+     UPDATE personalinformation per
+		SET per.`name` = #{Name},
+		    per.sex = #{Sex},
+		    per.dateOfBirth = #{DateOfBirth,jdbcType=DATE},
+		    per.phoneNumber = #{PhoneNumber},
+		    per.toWorkTime = #{ToWorkTime,jdbcType=DATE},
+		    per.accountLocation = #{AccountLocation},
+		    per.currentCity = #{CurrentCity},
+		    per.emailAddress = #{EmailAddress},
+		    per.maritalStatus = #{MaritalStatus},
+		    per.updateTime = #{UpdateTime,jdbcType=DATE}
+		WHERE per.IDnumber = #{IDnumber}
+		AND per.personalId = #{PersonalId}
+  </update>
+  
+  <delete id="deletePersonalInformation">
+	  DELETE FROM personalinformation
+		WHERE personalinformation.IDnumber = #{IDnumber}
+		AND personalinformation.personalId = #{PersonalId}
+  </delete>
+
+</mapper>

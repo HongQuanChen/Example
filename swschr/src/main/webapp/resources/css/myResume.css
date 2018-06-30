@@ -1,0 +1,174 @@
+@charset "UTF-8";
+        html,body{
+            background-color: #e3e3e3;
+            height: 100%;
+        }
+        body{
+          max-width: 750px;
+        }
+        .container{
+            padding-right:0;
+            padding-left:0;
+        }        
+        #jlnav{
+            background-color: #ff773e;
+            color: #fff;
+            text-align: center;
+            padding: 0.133rem 0;
+            position: relative;
+            font-size: 0.24rem;
+        }
+        #comeback{
+            position: absolute;
+            left: 0.133rem;
+        }
+        .jltitle{
+            margin-left: 0.267rem;
+        }
+        .jltime{
+            margin-left: 0.267rem;
+            color: #868686;
+            font-size: 13px;
+        }
+        .jloperational,#create{
+            text-align: center;
+            margin-top: 0.4rem;
+        }
+
+        .edit,.preview,.delete{
+            background-color: #fff8ed;
+            color: #868686;
+            padding: 0.2rem 0.2rem 0.2rem 0.6rem;
+            font-size: 14px;
+        }
+        .jloperational a:nth-child(-n+2){
+            margin-right:0.067rem;
+        }
+        .edit{
+            background-image: url("../image/zp/edit.png");
+            background-repeat: no-repeat;
+            background-size: 0.267rem;
+            background-position-y: 50%;
+            background-position-x: 0.2rem;
+        }
+        .delete{
+            background-image: url("../image/zp/delete.png");
+            background-repeat: no-repeat;
+            background-size: 0.267rem;
+            background-position-y: 50%;
+            background-position-x: 0.2rem;
+        }
+        .preview{
+            background-image: url("../image/zp/preview.png");
+            background-repeat: no-repeat;
+            background-size: 0.267rem;
+            background-position-y: 50%;
+            background-position-x: 0.2rem;
+        }
+        .resume{
+            background-color: #fff;
+            padding-bottom: 0.333rem;
+        }
+        .resume h5{
+            margin-top: 0;
+            padding-top: 0.133rem;
+        }
+        .create{
+            display: inline-block;
+            width: 100%;
+            padding: 0;
+            height: 0.667rem;
+            line-height: 0.667rem;
+            color: #4c99ff;
+            background-color: #fff8ed;
+            font-size: 14px;
+        }
+        #resume1{
+            margin-bottom: 0.267rem;
+        }
+        #MaskLayer{
+            height: 9.68rem;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: black;
+            opacity: .5;
+            display: none;
+        }
+        #MaskLayer1{
+            height: 9.68rem;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            opacity: .5;
+            display: none;
+        }
+        #PromptContainer{
+            position: fixed;
+            z-index: 999;
+            background-color: #fff;
+            width: 3.333rem;
+            text-align: center;
+            left: 0.827rem;
+            border-radius: 0.067rem;
+            display: none;
+            opacity: 0;
+        }
+        #PromptContainer ul{
+            margin-bottom:0;
+        }
+        #promptText{
+            padding: 0.4rem 0;
+        }
+        #promptButton{
+            padding: 0.133rem 0;
+            border-top: 1px solid #c3c3c3;
+            color: #f66f17;
+        }
+        #PromptContainer1{
+            display:none;
+            position: absolute;
+            top:30%;
+            let:1.333rem;
+            z-index: 999;
+        }
+        #promptDel {
+            display: inline-block;
+            height: 1em; line-height: 1;
+            text-align: left;
+            vertical-align: -.25em;
+            overflow: hidden;
+        }
+        #promptDel::before {
+            display: block;
+            content: '...\A..\A.';
+            white-space: pre-wrap;
+            -webkit-animation: dot 3s infinite step-start both;
+            -moz-animation: dot 3s infinite step-start both;
+            animation: dot 3s infinite step-start both;
+        }
+        @-webkit-keyframes dot {
+            0%  {width:0;}
+            33% { width: 5px; }
+            66% { width: 10px; }
+            100% {width: 13px;}
+        }
+        @-moz-keyframes dot {
+            0%  {width:0;}
+            33% { width: 5px; }
+            66% { width: 10px; }
+            100% {width: 13px;}
+        }
+        @-ms-keyframes dot {
+            0%  {width:0;}
+            33% { width: 5px; }
+            66% { width: 10px; }
+            100% {width: 13px;}
+        }
+        @keyframes dot {
+            0%  {width:0;}
+            33% { width: 5px; }
+            66% { width: 10px; }
+            100% {width: 13px;}
+        }

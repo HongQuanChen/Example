@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.swschrwx.model.DescriptionM">
+   <resultMap type="Jobdetails" id="jobdetailsMap">
+    <id property="JobDetailsId" column="JobDetailsId"/>
+    <result property="companyid" column="companyid" />
+    <result property="PositionTitle" column="PositionTitle" />
+    <result property="ReleaseDate" column="ReleaseDate" />
+    <result property="Education" column="Education" />
+    <result property="jobType" column="jobType" />
+    <result property="Department" column="Department" />
+    <result property="RecruitmentActivities" column="RecruitmentActivities" />
+    <result property="Place" column="place" />
+    <result property="company.CompanyName" column="companyname"/>
+  </resultMap>
+  <resultMap type="Description" id="descriptionMap">
+     <result property="doj.DescriptionOfJobId" column="descriptionOfJobId" />
+     <result property="doj.DescriptionOfJobText" column="descriptionOfJobText" />
+  </resultMap>
+  <resultMap type="JobDescription" id="jobDescriptionMap">
+     <result property="qua.QualificationsId" column="QualificationsId" />
+     <result property="qua.QualificationsText" column="QualificationsText" />
+  </resultMap>
+  
+  <select id="selectById" resultMap="jobdetailsMap">
+     SELECT job.PositionTitle,job.ReleaseDate,job.Education,
+       job.jobType,job.Department,job.RecruitmentActivities,job.place,
+       c.companyname
+     from jobdetails job,company c
+     WHERE c.companyid = job.companyid AND job.JobDetailsId = #{JobDetailsId}
+  </select>
+  <select id="descriptionById" resultMap="descriptionMap">
+     SELECT * from descriptionofjob dob 
+     WHERE dob.descriptionOfJobId = #{JobDetailsId}
+  </select>
+  <select id="descriptionQuaById" resultMap="jobDescriptionMap">
+     SELECT * from qualifications qua 
+     WHERE qua.QualificationsId = #{JobDetailsId}
+  </select>
+
+</mapper>

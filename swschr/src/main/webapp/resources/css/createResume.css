@@ -1,0 +1,257 @@
+@charset "UTF-8";
+html,body{
+    background-color: #fff;
+    height: 100%;
+}
+body{
+	max-width: 750px;
+}
+.container{
+    padding-right: 0;
+    padding-left: 0;
+}
+#jlnav1{
+    background-color: #ff773e;
+    color: #fff;
+    text-align: center;
+    padding: 0.133rem 0;
+    position: relative;
+    font-size: 18px;
+}
+#comeback1{
+    position: absolute;
+    left: 0.133rem;
+}
+.resumePersonalInformation,.resumeCareerObjective,
+.resumeEducationBackground,.resumeWorkExperience{
+    position: relative;
+    background-color: #fff;
+    padding: 0.133rem 0 0;
+    margin-top: 0.267rem;
+}
+.editimg{
+    position: absolute;
+    right: 0.6rem;
+    top: 0.147rem;
+}
+.edita{
+    position: absolute;
+    right: 0.133rem;
+    color: #ff8e0d;
+}
+.editp{
+    display: inline-block;
+    margin-left: 0.2rem;
+}
+.required{
+    font-size: 13px;
+    color: #4c99ff;
+}
+.helpimg{
+    margin-right: 0.067rem;
+    vertical-align: bottom;
+}
+.content{
+    background-color: #fff;
+}
+#edit form{
+    padding-top: 0.133rem;
+}
+#edit form label[for='jlbt']{
+    display: block;
+    font-weight: initial;
+    padding-left: 0.133rem;
+}
+#jlbt{
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px #b0b0b0;
+    padding-left: 0.133rem;
+}
+#conditionBottom{
+    background-color: #fff;
+    color: #ff773e;
+    margin: 0.133rem 0;
+    padding: 0.133rem;
+    text-align: center;
+}
+#define{
+    border-radius: 0.067rem;
+    width: 80%;
+    display: inline-block;
+    height: 0.533rem;
+    line-height: 0.533rem;
+    background-color: #ff773e;
+    color: #fff;
+}
+#saveJYBJ,#saveGZJY{
+    border-radius: 0.067rem;
+    width: 80%;
+    display: inline-block;
+    height: 0.533rem;
+    line-height: 0.533rem;
+    background-color: #ff773e;
+    color: #fff;
+}
+.econtent{
+    border-top: solid 1px #bfbfbf;
+    font-size: 14px;
+}
+.ullist{
+    padding-left: 0;
+    padding-top: 0.133rem;
+}
+.ullist li{
+    border-bottom: solid 1px #bfbfbf;
+    height: 0.533rem;
+    line-height: 0.533rem;
+    padding-bottom: 0.533rem;
+    position: relative;
+    padding-left:0.267rem;
+}
+#editgzjy .ullist li:last-child{
+    border-bottom-style: none;
+}
+#xztx{
+    border-bottom: solid 1px #bfbfbf;
+    height: 0.733rem;
+    line-height: 0.733rem;
+    padding-bottom: 0.533rem;
+    position: relative;
+    padding-left: 0.267rem;
+}
+#scimage{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    z-index: 9;
+    margin-left: -0.267rem;
+}
+#defaultImg{
+    right: 0.467rem;
+    top: 0;
+    border-radius: 50%;
+    position: absolute;
+}
+.rightArrow{
+    top: 0.147rem;
+    position: absolute;
+    right: 0.2rem;
+}
+.asterisk{
+    color: #ff6600;
+    font-size: 20px;
+    display: inline-block;
+    position: absolute;
+    top: 0.04rem;
+}
+.asteriskTitle{
+    margin-left: 0.133rem;
+}
+.editInput,.editSpan{
+    width: 2.667rem;
+    line-height: 0.267rem;
+    text-align: right;
+    border: none;
+    position: absolute;
+    right: 0.467rem;
+    top: 0.133rem;
+}
+.editSpan{
+    color:#838383;
+}
+.editSelect{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    opacity: 0;
+    height: 100%;
+}
+.gzms{
+    width: 100%;
+    height: 1.333rem;
+    margin-top: -0.133rem;
+    background-color: #f6f6f6;
+}
+.txImgArrow{
+    top: 0.2rem;
+}
+#sexInput,#maritalStatusInput,#gzxzInput,
+#qwxzInput,#gzztInput,#xlInput,#xlInput0,
+#xlInput1,#xlInput2,#zwSalaryInput,
+#zwSalaryInput1,#zwSalaryInput2{
+    display:none;
+}
+#submitPI,#submitCO{
+    margin: 0 auto;
+    background-color: #ff773e;
+    color: #fff;
+    padding: 0.133rem 0;
+    width: 80%;
+    border-radius: 0.067rem;
+    margin-top: 0.267rem;
+    display:block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance:none;
+}
+#createJYBJ,#createGZJY{
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    padding: 0.267rem 0.533rem 0.2rem;
+    bottom: 0.04rem;
+}
+#deleteJYBJ1,#deleteJYBJ2,
+#deleteGZJY1,#deleteGZJY2{
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    padding: 0.267rem 0.533rem 0.2rem;
+    top: 0.067rem;
+}
+#editgsxx #formPI ul li:nth-last-child(1){
+    display: none;
+}
+#editqzyx #formCO ul li:nth-last-child(-n+2){
+    display: none;
+}
+#editjybj .content.econtent ul li:nth-last-child(-n+3),
+#editgzjy .content.econtent ul li:nth-last-child(-n+3){
+    display: none;
+}
+#MaskLayer{
+    height: 9.68rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    opacity: .5;
+    display: none;
+}
+#PromptContainer{
+    position: fixed;
+    z-index: 999;
+    background-color: #fff;
+    width: 3.333rem;
+    text-align: center;
+    left: 0.827rem;
+    border-radius: 0.067rem;
+    display: none;
+    opacity: 0;
+}
+#PromptContainer ul{
+    margin-bottom:0;
+}
+#promptText{
+    padding: 0.4rem 0;
+}
+#promptButton{
+    padding: 0.133rem 0;
+    border-top: 1px solid #c3c3c3;
+    color: #f66f17;
+}
+#saveJYBJTJ,#saveGZJYTJ{
+    display:none;
+}

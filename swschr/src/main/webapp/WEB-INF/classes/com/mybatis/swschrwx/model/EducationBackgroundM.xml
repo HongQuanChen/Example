@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.swschrwx.model.EducationBackgroundM">
+  <resultMap type="EducationBackground" id="EducationBackgroundMap">
+    <result property="SchoolName" column="schoolName"/>
+    <result property="ProfessionalTitle" column="professionalTitle"/>
+    <result property="Degree" column="degree"/>
+    <result property="AdmissionTime" column="admissionTime"/>
+    <result property="GraduationTime" column="graduationTime"/>
+  </resultMap>
+  <insert id="insertEducationBackground">
+    INSERT INTO educationbackground(IDNumber,educationBackgroundId,number,
+             schoolName,professionalTitle,degree,admissionTime,graduationTime,
+             createDate)
+    VALUES(#{IDNumber},#{EducationBackgroundId},#{Number},
+           #{SchoolName},#{ProfessionalTitle},#{Degree},
+           #{AdmissionTime,jdbcType=DATE},#{GraduationTime,jdbcType=DATE},
+           #{CreateDate,jdbcType=DATE})
+  </insert>
+  
+   <select id="selectEducationBackground" resultType="int">
+      SELECT COUNT(*) FROM educationbackground eb WHERE 
+			eb.IDNumber = #{IDNumber}
+			AND eb.educationBackgroundId =#{EducationBackgroundId}
+			AND eb.number =#{Number}
+  </select>
+  
+  <select id="selectEducationBackgroundAll" resultMap="EducationBackgroundMap">
+      SELECT eb.schoolName,eb.professionalTitle,
+			eb.degree,eb.admissionTime,eb.graduationTime,
+			eb.number FROM educationbackground eb
+			WHERE eb.IDNumber = #{IDNumber}
+			AND eb.educationBackgroundId = #{EducationBackgroundId}
+			ORDER BY number
+  </select>
+  
+  <update id="updateEducationBackground">
+      UPDATE educationbackground eb
+		SET eb.schoolName = #{SchoolName},
+		    eb.professionalTitle = #{ProfessionalTitle},
+		    eb.degree = #{Degree},
+		    eb.admissionTime = #{AdmissionTime,jdbcType=DATE},
+		    eb.graduationTime = #{GraduationTime,jdbcType=DATE},
+		    eb.updateDate = #{UpdateDate,jdbcType=DATE}
+		WHERE eb.IDNumber = #{IDNumber}
+		AND eb.educationBackgroundId = #{EducationBackgroundId}
+		AND eb.number = #{Number}
+  </update>
+  
+  <delete id="deleteEducationBackground">
+	  DELETE FROM educationbackground
+		WHERE educationbackground.educationBackgroundId = #{EducationBackgroundId}
+		AND educationbackground.IDNumber = #{IDNumber}
+		AND educationbackground.number = #{Number}
+  </delete>
+  
+  <delete id="deleteEducationBackgroundAll">
+	  DELETE FROM educationbackground
+		WHERE educationbackground.IDNumber = #{IDNumber}
+		AND educationbackground.educationBackgroundId = #{EducationBackgroundId}
+  </delete>
+</mapper>
